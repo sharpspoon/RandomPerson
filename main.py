@@ -20,6 +20,13 @@ def random_person_data(num_records, domain_name, file_type):
 
     ssns = [faker.ssn() for _ in range(num_records)]
 
+    address_1 = [faker.building_number() for _ in range(num_records)]
+    address_2 = [faker.secondary_address() for _ in range(num_records)]
+    zips = [faker.zipcode() for _ in range(num_records)]
+    streets = [faker.street_name() for _ in range(num_records)]
+    cities = [faker.city() for _ in range(num_records)]
+    states = [faker.state() for _ in range(num_records)]
+
     df = pd.DataFrame({
         'First Name': first_names,
         'Last Name': last_names,
@@ -27,7 +34,13 @@ def random_person_data(num_records, domain_name, file_type):
         'DOB': dob,
         'Phone Number': phone_numbers,
         'Email': emails,
-        'SSN': ssns
+        'SSN': ssns,
+        'Address 1': address_1,
+        'Address 2': address_2,
+        'Street': streets,
+        'City': cities,
+        'State': states,
+        'Zip Code': zips
     })
 
     if file_type == "xlsx":
